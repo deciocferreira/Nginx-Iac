@@ -7,7 +7,7 @@
 
 ## Proposta de tecnologias e arquitetura para a solução.
 
-- **VPC e Rede**: Uma Virtual Private Cloud com sub-redes públicas e privadas para distribuir as instâncias ECS e security groups configurados para controlar o tráfego entre as instâncias.
+- **VPC e Rede**: Uma Virtual Private Cloud com sub-redes públicas e privadas para distribuir as instâncias ECS, security groups configurados para controlar o tráfego entre as instâncias e uma a rota para o Gateway NAT, para que as instâncias na sub-rede privada acessem a Internet.
 
 - **ECR (Elastic Container Registry)**: Armazenamento da imagem do container Nginx.
 
@@ -20,3 +20,5 @@
 - **CloudWatch**: Habilita o monitoramento das instâncias, coleta logs e alertas com base em métricas como CPU e memória.
 
 - **Terraform**: Ferramenta Iac para criação dos recursos na AWS.
+
+- **Powershell**: Script para gerenciar informações sensíveis do projeto.
