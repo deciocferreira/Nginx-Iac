@@ -5,7 +5,7 @@ data "template_file" "env_vars" {
 resource "aws_ecs_task_definition" "ecs-nginx" {
   family = "${var.app_name}-task"
 
-  container_definitions    = jsonencode([{
+  container_definitions = jsonencode([{
     name  = "${var.app_name}-${var.app_environment}-container"
     image = var.nginx_container_image
     portMappings = [{

@@ -26,19 +26,19 @@ resource "aws_ecs_service" "ecs-service" {
     ]
   }
 
-# Load Balancer do ECS
-resource "aws_lb" "applicationlb" {
-  name               = "${var.app_name}-${var.app_environment}-alb"
-  internal           = false
-  load_balancer_type = "application"
-  subnets            = aws_subnet.public.*.id
-  security_groups    = [aws_security_group.load_balancer_security_group.id]
+  # Load Balancer do ECS
+  resource "aws_lb" "applicationlb" {
+    name               = "${var.app_name}-${var.app_environment}-alb"
+    internal           = false
+    load_balancer_type = "application"
+    subnets            = aws_subnet.public.*.id
+    security_groups    = [aws_security_group.load_balancer_security_group.id]
 
-  tags = {
-    Name        = "${var.app_name}-alb"
-    Environment = var.app_environment
+    tags = {
+      Name        = "${var.app_name}-alb"
+      Environment = var.app_environment
+    }
   }
-}
 
   load_balancer {
     target_group_arn = aws_lb_target_group.target_group.arn
@@ -66,9 +66,9 @@ resource "aws_autoscaling_group" "ecs" {
 }
 # Configuração de Lançamento do ECS
 resource "aws_launch_configuration" "ecs" {
-  name               = "${var.app_name}-${var.app_environment}-ECSLaunchConfig"
-  image_id             = "ami-xxxxxxxxxxxxxxxxx" 
-  instance_type        = "t2.micro" 
+  name                 = "${var.app_name}-${var.app_environment}-ECSLaunchConfig"
+  image_id             = "ami-xxxxxxxxxxxxxxxxx"
+  instance_type        = "t2.micro"
   security_groups      = [aws_security_group.ecs.id]
   iam_instance_profile = aws_iam_instance_profile.ecs.name
   user_data            = filebase64("${path.module}/user_data.sh")

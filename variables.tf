@@ -54,10 +54,10 @@ variable "private_subnets" {
 
 variable "availability_zones" {
   description = "List of availability zones"
-}  
+}
 
 variable "nginx_container_image" {
   description = "URL da imagem do nginx no ECR"
-  default = "${aws_ecr_repository.ecr-image.repository_url}:latest"
+  default     = "${aws_ecr_repository.ecr-image.repository_url}:latest"
 
 }

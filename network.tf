@@ -1,6 +1,6 @@
 # VPC
 resource "aws_vpc" "nginx-vpc" {
-  cidr_block = var.vpc_cidr_block
+  cidr_block           = var.vpc_cidr_block
   enable_dns_hostnames = true
   enable_dns_support   = true
   tags = {
@@ -14,10 +14,10 @@ resource "aws_subnet" "public" {
   count             = length(var.public_subnet_cidr_blocks)
   cidr_block        = var.public_subnet_cidr_blocks[count.index]
   vpc_id            = aws_vpc.nginx-vpc.id
-  availability_zone = "us-east-1a" 
+  availability_zone = "us-east-1a"
 
   tags = {
-    Name = "${var.app_name}-public-subnet-${count.index + 1}"
+    Name        = "${var.app_name}-public-subnet-${count.index + 1}"
     Environment = var.app_environment
   }
 }
@@ -27,10 +27,10 @@ resource "aws_subnet" "private" {
   count             = length(var.private_subnet_cidr_blocks)
   cidr_block        = var.private_subnet_cidr_blocks[count.index]
   vpc_id            = aws_vpc.nginx-vpc.id
-  availability_zone = "us-east-1a" 
+  availability_zone = "us-east-1a"
 
   tags = {
-    Name = "${var.app_name}-private-subnet-${count.index + 1}"
+    Name        = "${var.app_name}-private-subnet-${count.index + 1}"
     Environment = var.app_environment
   }
 }
