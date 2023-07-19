@@ -16,7 +16,7 @@ variable "aws_region" {
 variable "aws_cloudwatch_retention_in_days" {
   type        = number
   description = "AWS CloudWatch Logs Retention in Days"
-  default     = 1
+  default     = 7
 }
 
 variable "app_name" {
@@ -58,5 +58,6 @@ variable "availability_zones" {
 
 variable "nginx_container_image" {
   description = "URL da imagem do nginx no ECR"
+  default = "${aws_ecr_repository.ecr-image.repository_url}:latest"
 
 }
