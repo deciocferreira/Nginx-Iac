@@ -13,7 +13,7 @@
 
 - **ECS (Elastic Container Service)**: O ECS será responsável em executar e dimensionar os containeres do nginx através de uma definição de tarefa (task definition) para o nginx usando a imagem do ECR criada anteriormente.
   
-- **ELB (Elastic Load Balancer)**: Distribuição do tráfego entre as instâncias ECS em execução.
+- **ELB (Elastic Load Balancer)**: Distribuição do tráfego entre as instâncias em execução feita por um Application Load Balancer.
 
 - **EC2 Auto Scaling**: Permite que haja dimensionamento automático para escalar as instâncias ECS com base na utilização de CPU e memória.
 
