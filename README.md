@@ -1,4 +1,4 @@
-<p align="center"> <image src="https://github.com/deciocferreira/Nginx-iac/assets/12403699/5d9be2ff-5c72-4730-9183-08da79c0aadd" width="120" height="120">  <image src="https://github.com/deciocferreira/Nginx-iac/assets/12403699/4bd2021f-9739-419f-b3db-48abe05f5e3a" width="100" height="100"> </p>
+<p align="center"> <image src="https://github.com/deciocferreira/Nginx-Iac/assets/12403699/02185bcd-f7ac-485f-9855-2fe2eab4b1e3" width="120" height="120">  <image src="https://github.com/deciocferreira/Nginx-Iac/assets/12403699/022c28ce-6630-4bfc-b73e-c9aa56bf3b37" width="100" height="100"> </p>
 <h1 align ="center"> Iac + NGINX </h1>
 
 <p align ="center"> Projeto para implantação do Nginx server escalável, utilizando infraestrutura da AWS criada pelo Terraform. </p>
