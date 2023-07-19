@@ -20,3 +20,5 @@
 - **CloudWatch**: Habilita o monitoramento das instâncias, coleta logs e alertas com base em métricas como CPU e memória.
 
 - **Terraform**: Ferramenta Iac para criação dos recursos na AWS.
+
+- **Powershell**: Script para gerenciar informações sensíveis do projeto.
