@@ -26,5 +26,4 @@
     ],
     "requiresCompatibilities": ["EC2"],
     "networkMode": "VPC"
-  }
-  
+  }  

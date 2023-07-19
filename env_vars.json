@@ -1,0 +1,6 @@
+{
+    "ENVIRONMENT": "dev",
+    "DATABASE_URL": "mysql://user:password@database.example.com:3306/db_name",
+    "DEBUG_MODE": "true",
+    "ANOTHER_VARIABLE": "value"
+  }  
