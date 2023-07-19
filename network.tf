@@ -66,7 +66,7 @@ resource "aws_lb_target_group" "ecs" {
   name     = "${var.app_name}-TargetGroup"
   port     = 80
   protocol = "HTTP"
-  vpc_id   = aws_vpc.main.id
+  vpc_id   = aws_vpc.nginx-vpc.id
 
   health_check {
     path = "/v1/status"
@@ -76,5 +76,5 @@ resource "aws_lb_target_group" "ecs" {
 # Target Group do Cluster ECS
 resource "aws_lb_target_group_attachment" "ecs" {
   target_group_arn = aws_lb_target_group.ecs.arn
-  target_id        = aws_ecs_cluster.main.id
+  target_id        = aws_ecs_cluster.ecs-cluster.id
 }

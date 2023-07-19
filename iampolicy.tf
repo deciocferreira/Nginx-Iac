@@ -61,8 +61,8 @@ resource "aws_appautoscaling_policy" "ecs" {
     predefined_metric_specification {
       predefined_metric_type = "ECSServiceAverageCPUUtilization"
     }
-    scale_in_cooldown  = 60
+    scale_in_cooldown  = 40
     scale_out_cooldown = 60
-    target_value       = 70.0
+    target_value       = 80
   }
 }
