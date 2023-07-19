@@ -35,15 +35,41 @@ resource "aws_subnet" "private" {
   }
 }
 
+# NAT Gateway 
+resource "aws_nat_gateway" "nat" {
+  allocation_id = aws_eip.nat.id
+  subnet_id     = aws_subnet.aws_vpc.nginx-vpc.id 
+
+  tags = {
+    Name = "${var.app_name}-NATGateway"
+  }
+}
+
+# Elastic IP (EIP)
+resource "aws_eip" "nat" {
+  vpc = true
+
+  tags = {
+    Name = "${var.app_name}-NATEIP"
+  }
+}
+
+# Rota para o Gateway NAT
+resource "aws_route" "public" {
+  route_table_id         = aws_route_table.public.id
+  destination_cidr_block = "0.0.0.0/0"
+  nat_gateway_id         = aws_nat_gateway.nat.id
+}
+
 # Target Group do ECS Load Balancer
 resource "aws_lb_target_group" "ecs" {
-  name     = "MyECSTargetGroup"
+  name     = "${var.app_name}-TargetGroup"
   port     = 80
   protocol = "HTTP"
   vpc_id   = aws_vpc.main.id
 
   health_check {
-    path = "/"
+    path = "/v1/status"
   }
 }
 
