@@ -1,7 +1,7 @@
 # Região, Acces Key e Secret Key da AWS
-aws_region        = "us-east-1"
-aws_access_key    = var.TF_aws_access_key
-aws_secret_key    = var.TF_aws_secret_key
+aws_region     = "us-east-1"
+aws_access_key = var.TF_aws_access_key
+aws_secret_key = var.TF_aws_secret_key
 
 # AZ e subnets
 availability_zones = ["us-east-1a", "us-east-1b"]

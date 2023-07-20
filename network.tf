@@ -70,7 +70,7 @@ resource "aws_route_table_association" "public" {
 # NAT Gateway 
 resource "aws_nat_gateway" "nat" {
   allocation_id = aws_eip.nat.id
-  subnet_id     = aws_subnet.aws_vpc.nginx-vpc.id 
+  subnet_id     = aws_subnet.aws_vpc.nginx-vpc.id
 
   tags = {
     Name = "${var.app_name}-NATGateway"
